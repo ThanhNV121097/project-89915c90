@@ -1,5 +1,5 @@
 export const characterCounterCopy = {
   title: "Character counter",
-  subtitle: "Count characters as you type. Spaces count too.",
-  hint: "Nothing leaves your browser.",
+  subtitle: "Type below and watch the count change.",
+  hint: "Nothing you type leaves this page.",
 } as const;
