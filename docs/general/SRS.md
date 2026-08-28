@@ -39,11 +39,12 @@ Character Counter is a single static browser page that lets a visitor type text 
 Behaviour:
 
 1. When the page loads, the visitor sees one centered white card on a very light grey background.
-2. The card shows heading `Character counter`, subline text, one textarea, a live count line, a `Clear` button, and a privacy hint.
-3. The textarea is empty on initial load and the count line shows `0 characters`.
-4. The count updates on every keystroke, including spaces.
-5. The count uses singular form for exactly one character and plural form for all other counts.
-6. The `Clear` button empties the textarea, resets the count to `0 characters`, and returns focus to the textarea.
+2. The card uses near-black text, a muted subline, a system sans-serif font stack, a bordered rounded shadowed card, and the Clear button uses accent color `#2F6F4E`.
+3. The card shows heading `Character counter`, subline text, one textarea, a live count line, a `Clear` button, and a privacy hint.
+4. The textarea is empty on initial load and the count line shows `0 characters`.
+5. The count updates on every keystroke, including spaces.
+6. The count uses singular form for exactly one character and plural form for all other counts.
+7. The `Clear` button empties the textarea, resets the count to `0 characters`, and returns focus to the textarea.
 
 **Acceptance criteria** — each maps one-to-one onto a test case in `docs/general/test-cases/build-character-counter-page.md`.
 
