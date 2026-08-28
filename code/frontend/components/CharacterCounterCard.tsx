@@ -24,7 +24,7 @@ export function CharacterCounterCard() {
             ref={inputRef}
             aria-describedby="character-count privacy-hint"
             className={styles.textarea}
-            onChange={(event) => setValue(event.target.value)}
+            onInput={(event) => setValue(event.currentTarget.value)}
             placeholder="Type here"
             value={value}
           />
