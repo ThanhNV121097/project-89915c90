@@ -59,6 +59,8 @@ Behaviour:
 
 **Failure, boundary and permission behaviour** — no error, empty-state, permission, or conflict state is part of the approved design. The page is single-reader, single-state, browser-only, and has no backend or database failure surface in scope.
 
+**Out of scope styling** — none. The approved design styling above is required, not optional.
+
 **Data touched** — the fields this function reads and writes, in product terms.
 
 | Field | Type | Required | Rule |
