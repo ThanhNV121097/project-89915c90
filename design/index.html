@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Counter</title>
+  <style>
+    :root{
+      --bg:#f5f6f4;
+      --card:#ffffff;
+      --text:#171717;
+      --muted:#5f635f;
+      --accent:#2F6F4E;
+      --border:#dfe3dd;
+      --shadow:0 18px 40px rgba(23,23,23,.08);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(47,111,78,.07), transparent 34%),
+        var(--bg);
+      color:var(--text);
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+    main{
+      width:min(680px, 100%);
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:32px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+    p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .composer{margin-top:24px;}
+    label{
+      display:block;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+    textarea{
+      width:100%;
+      min-height:180px;
+      resize:vertical;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      font:inherit;
+      color:var(--text);
+      background:#fbfcfa;
+      transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    textarea:hover{border-color:#c9d2c6}
+    textarea:focus-visible,
+    button:focus-visible{
+      outline:3px solid rgba(47,111,78,.28);
+      outline-offset:3px;
+    }
+    textarea:focus-visible{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(47,111,78,.12);
+    }
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .count{
+      font-size:clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight:700;
+      letter-spacing:-.03em;
+    }
+    .count span{color:var(--accent)}
+    button{
+      border:0;
+      background:var(--accent);
+      color:#fff;
+      padding:13px 18px;
+      border-radius:999px;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      box-shadow:0 10px 20px rgba(47,111,78,.2);
+    }
+    button:hover{transform:translateY(-1px); background:#285e43}
+    button:active{transform:translateY(0)}
+    .hint{margin-top:16px; font-size:.95rem;}
+    @media (max-width: 560px){
+      .card{padding:22px}
+      .meta{align-items:flex-start}
+      button{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Character counter</h1>
+      <p>Type below and watch the count change.</p>
+
+      <div class="composer">
+        <label for="input">Your text</label>
+        <textarea id="input" aria-describedby="count hint" placeholder="Type something"></textarea>
+        <div class="meta">
+          <div class="count" id="count" aria-live="polite"><span>0</span> characters</div>
+          <button type="button" id="clear">Clear</button>
+        </div>
+        <p class="hint" id="hint">Nothing you type leaves this page.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const input = document.getElementById('input');
+    const count = document.getElementById('count');
+    const clear = document.getElementById('clear');
+
+    function render(){
+      const value = input.value;
+      const total = value.length;
+      count.innerHTML = `<span>${total}</span> ${total === 1 ? 'character' : 'characters'}`;
+    }
+
+    input.addEventListener('input', render);
+    clear.addEventListener('click', () => {
+      input.value = '';
+      render();
+      input.focus();
+    });
+
+    render();
+  </script>
+</body>
+</html>
