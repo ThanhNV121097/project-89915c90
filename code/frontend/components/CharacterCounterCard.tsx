@@ -1,16 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./CharacterCounterCard.module.css";
 import { characterCounterCopy } from "../lib/mock/build-character-counter-page";
 
 export function CharacterCounterCard() {
   const [value, setValue] = useState("");
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const count = value.length;
-  const countLabel = useMemo(
-    () => `${count} character${count === 1 ? "" : "s"}`,
-    [count],
-  );
+  const countLabel = `${count} character${count === 1 ? "" : "s"}`;
 
   return (
     <div className={styles.card}>
@@ -23,6 +21,7 @@ export function CharacterCounterCard() {
         <label className={styles.field}>
           <span className={styles.label}>Text to count</span>
           <textarea
+            ref={inputRef}
             aria-describedby="character-count privacy-hint"
             className={styles.textarea}
             onChange={(event) => setValue(event.target.value)}
@@ -37,7 +36,10 @@ export function CharacterCounterCard() {
 
         <button
           className={styles.button}
-          onClick={() => setValue("")}
+          onClick={() => {
+            setValue("");
+            inputRef.current?.focus();
+          }}
           type="button"
         >
           Clear
