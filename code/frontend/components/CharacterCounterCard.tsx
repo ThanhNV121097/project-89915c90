@@ -19,7 +19,7 @@ export function CharacterCounterCard() {
         </header>
 
         <label className={styles.field}>
-          <span className={styles.label}>Text to count</span>
+          <span className={styles.label}>Your text</span>
           <textarea
             ref={inputRef}
             aria-describedby="character-count privacy-hint"
