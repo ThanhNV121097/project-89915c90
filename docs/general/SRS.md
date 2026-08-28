@@ -38,7 +38,7 @@ Character Counter is a single static browser page that lets a visitor type text 
 
 Behaviour:
 
-1. When the page loads, the visitor sees one centered card on a light grey background.
+1. When the page loads, the visitor sees one centered white card on a very light grey background.
 2. The card shows heading `Character counter`, subline text, one textarea, a live count line, a `Clear` button, and a privacy hint.
 3. The textarea is empty on initial load and the count line shows `0 characters`.
 4. The count updates on every keystroke, including spaces.
