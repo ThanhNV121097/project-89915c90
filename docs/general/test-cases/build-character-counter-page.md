@@ -1,27 +1,31 @@
 # Test Cases — Build character counter page
 
-Risk level: low. Single static UI, no data loss or auth. Focus on core interaction, visible content, and browser-only behavior.
+Risk level: low. Static single-page UI, no data persistence, no roles, no backend/database behavior beyond absence.
 
-## Scenario: Page shows approved character counter layout
-**Given** page is opened in fresh browser state
-**When** page finishes rendering
-**Then** one centered card appears on light grey background with heading, subline, textarea, live character count, Clear button, and privacy hint; count starts at 0 characters
-**Check:** render_url
+## Case 1 — Initial page render shows required UI
+**Scenario**: Character Counter page renders centered card with heading, subline, textarea, live count, Clear button, and privacy hint
+**Given**: Browser loads Character Counter page at initial state
+**When**: Page response is fetched and rendered
+**Then**: Page shows one centered card on light grey background, with heading, subline, empty textarea, character count showing `0 characters`, Clear button, and privacy hint text; no backend data is displayed
+**Check**: render_url
 
-## Scenario: Typing updates count on every keystroke, including spaces
-**Given** page is open and textarea is empty
-**When** user types `a b` into textarea, one keystroke at a time
-**Then** count changes after each keystroke and final visible count is `3 characters`
-**Check:** interact_page
+## Case 2 — Typing updates count on every keystroke, including spaces
+**Scenario**: Live count updates as user types characters and spaces
+**Given**: Character Counter page is open with empty textarea and count at `0 characters`
+**When**: User types `a`, then space, then `b` into textarea one keystroke at a time
+**Then**: Count updates after each keystroke to `1 character`, `2 characters`, then `3 characters`, and textarea value reads `a b`
+**Check**: interact_page
 
-## Scenario: Clear empties input and resets count
-**Given** page is open and textarea contains text with non-zero count
-**When** user clicks Clear button
-**Then** textarea becomes empty and visible count returns to `0 characters`
-**Check:** interact_page
+## Case 3 — Clear empties input and resets count
+**Scenario**: Clear button removes current text and resets live count
+**Given**: Character Counter page is open with textarea containing `hello world` and live count showing `11 characters`
+**When**: User clicks Clear button
+**Then**: Textarea becomes empty and live count shows `0 characters`
+**Check**: interact_page
 
-## Scenario: Page stays browser-only with no backend or database dependency
-**Given** page is opened from the deployed URL
-**When** page loads and is inspected for data source behavior
-**Then** content renders without needing any API response or database record, and no backend-driven content is required for the page to function
-**Check:** fetch_url
+## Case 4 — Static page has no backend or database
+**Scenario**: Page is browser-only static content with no backend/database dependency
+**Given**: Character Counter page URL is available
+**When**: Page is fetched directly
+**Then**: Response is plain static page content for the Character Counter screen; no API response, database-backed data, or server-generated data is required to render the page
+**Check**: fetch_url
