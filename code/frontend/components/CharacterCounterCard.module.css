@@ -31,7 +31,7 @@
 }
 
 .textarea {
-  min-height: calc(var(--space-12) * 3 + var(--space-8));
+  min-height: calc(var(--space-12) * 3 + var(--space-6) * 2);
   padding: var(--space-5);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -58,7 +58,7 @@
 }
 
 .button {
-  padding: calc(var(--space-3) + 3px) calc(var(--space-4) + 6px);
+  padding: var(--space-4) var(--space-6);
   border: 0;
   border-radius: var(--radius-full);
   background: var(--color-primary);
@@ -76,10 +76,4 @@
 
 .button:focus-visible {
   box-shadow: 0 0 0 var(--space-3) var(--color-focus);
-}
-
-@media (max-width: 560px) {
-  .button {
-    width: 100%;
-  }
 }
