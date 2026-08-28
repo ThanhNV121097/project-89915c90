@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f5f6f4;
+  --color-surface: #ffffff;
+  --color-surface-raised: #fbfcfa;
+  --color-border: #dfe3dd;
+  --color-border-hover: #c9d2c6;
+  --color-text: #171717;
+  --color-text-muted: #5f635f;
+  --color-primary: #2F6F4E;
+  --color-primary-hover: #285e43;
+  --color-primary-text: #ffffff;
+  --color-focus: rgba(47,111,78,.28);
+  --color-focus-soft: rgba(47,111,78,.12);
+  --color-accent-surface: rgba(47,111,78,.07);
+  --color-shadow: rgba(23,23,23,.08);
+  --color-shadow-primary: rgba(47,111,78,.2);
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 18px;
+  --space-7: 22px;
+  --space-8: 24px;
+  --space-10: 32px;
+  --space-12: 48px;
+  --text-sm: 0.95rem;
+  --text-base: 1rem;
+  --text-lg: 1.3rem;
+  --text-xl: 1.8rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --font-weight-body: 400;
+  --font-weight-medium: 600;
+  --font-weight-heading: 700;
+  --tracking-tight: -0.04em;
+  --tracking-normal: 0;
+  --tracking-count: -0.03em;
+  --radius-sm: 18px;
+  --radius-md: 24px;
+  --radius-full: 999px;
+  --border-width: 1px;
+  --shadow-sm: 0 18px 40px rgba(23,23,23,.08);
+  --shadow-md: 0 10px 20px rgba(47,111,78,.2);
+  --duration-fast: 0.18s;
+  --easing: ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: var(--border-width) solid var(--color-primary);
+  outline-offset: var(--space-3);
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-8);
+}
+
+.card-shell {
+  width: min(680px, 100%);
+  min-height: 320px;
+  padding: var(--space-10);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: var(--space-8);
+  }
+
+  .card-shell {
+    padding: var(--space-7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
