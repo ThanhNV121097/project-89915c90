@@ -50,7 +50,7 @@ Behaviour:
 
 | # | Given | When | Then |
 |---|---|---|---|
-| AC-1 | The page is loaded | Visitor views the page | One centered card appears with heading, subline, textarea, count line, Clear button, and privacy hint |
+| AC-1 | The page is loaded | Visitor views the page | One centered white card appears on a very light grey background with heading, subline, textarea, count line, Clear button, and privacy hint |
 | AC-2 | Textarea is empty on load | Visitor views the count line | Count line shows `0 characters` |
 | AC-3 | Textarea contains text with spaces | Visitor types additional characters | Count updates after each keystroke and includes spaces in total |
 | AC-4 | Textarea contains any text | Visitor clicks `Clear` | Textarea becomes empty, count returns to `0 characters`, and focus returns to textarea |
